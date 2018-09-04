@@ -36,6 +36,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Main\templates\index.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
