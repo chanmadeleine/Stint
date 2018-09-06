@@ -36,7 +36,11 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Main\static\favicon.ico" />
+    <Content Include="Main\static\site.css" />
+    <Content Include="Main\templates\about.html" />
     <Content Include="Main\templates\index.html" />
+    <Content Include="Main\templates\layout.html" />
     <Content Include="requirements.txt" />
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +56,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Main\" />
+    <Folder Include="Main\static\" />
     <Folder Include="Main\templates\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.Web.targets" />
