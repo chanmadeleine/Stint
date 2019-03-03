@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{596300a9-61a4-46c3-a07d-892cd52fa046}</ProjectGuid>
+    <ProjectHome />
+    <StartupFile>run.py</StartupFile>
+    <SearchPath />
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
+    <LaunchProvider>Web launcher</LaunchProvider>
+    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <WebBrowserUrl>http://localhost</WebBrowserUrl>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+  <PropertyGroup>
+    <VisualStudioVersion Condition=" '$(VisualStudioVersion)' == '' ">10.0</VisualStudioVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <Content Include="app\main\auth\templates\login.html" />
+    <Content Include="app\main\auth\templates\register.html" />
+    <Content Include="app\main\book\templates\book.html" />
+    <Content Include="app\main\book\templates\book_detail.html" />
+    <Content Include="app\main\book\templates\book_edit.html" />
+    <Content Include="app\main\book\templates\book_tag.html" />
+    <Content Include="app\main\index\templates\index.html" />
+    <Content Include="app\main\log\templates\logs_info.html" />
+    <Content Include="app\main\user\templates\avatar_edit.html" />
+    <Content Include="app\main\user\templates\user.html" />
+    <Content Include="app\main\user\templates\user_detail.html" />
+    <Content Include="app\main\user\templates\user_edit.html" />
+    <Content Include="app\static\css\bootstrap-theme.css" />
+    <Content Include="app\static\css\bootstrap-theme.min.css" />
+    <Content Include="app\static\css\bootstrap-tokenfield.css" />
+    <Content Include="app\static\css\bootstrap-tokenfield.min.css" />
+    <Content Include="app\static\css\bootstrap.css" />
+    <Content Include="app\static\css\bootstrap.min.css" />
+    <Content Include="app\static\css\fileinput.min.css" />
+    <Content Include="app\static\css\main.css" />
+    <Content Include="app\static\css\tokenfield-typeahead.css" />
+    <Content Include="app\static\css\tokenfield-typeahead.min.css" />
+    <Content Include="app\static\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="app\static\img\avatar.png" />
+    <Content Include="app\static\img\horizontal.png" />
+    <Content Include="app\static\img\logo.png" />
+    <Content Include="app\static\img\vertical.png" />
+    <Content Include="app\static\js\bootstrap-tokenfield.js" />
+    <Content Include="app\static\js\bootstrap-tokenfield.min.js" />
+    <Content Include="app\static\js\bootstrap.js" />
+    <Content Include="app\static\js\bootstrap.min.js" />
+    <Content Include="app\static\js\fileinput.min.js" />
+    <Content Include="app\static\js\get_book_from_douban.js" />
+    <Content Include="app\static\js\jquery-2.2.3.js" />
+    <Content Include="app\static\js\jquery-2.2.3.min.js" />
+    <Content Include="app\static\js\Markdown.Converter.min.js" />
+    <Content Include="app\static\js\Markdown.Sanitizer.min.js" />
+    <Content Include="app\static\js\npm.js" />
+    <Content Include="app\templates\404.html" />
+    <Content Include="app\templates\500.html" />
+    <Content Include="app\templates\base.html" />
+    <Content Include="requirements.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="app\api\book.py" />
+    <Compile Include="app\api\comment.py" />
+    <Compile Include="app\api\fields.py" />
+    <Compile Include="app\api\log.py" />
+    <Compile Include="app\api\tag.py" />
+    <Compile Include="app\api\user.py" />
+    <Compile Include="app\api\__init__.py" />
+    <Compile Include="app\db_fill.py" />
+    <Compile Include="app\main\auth\forms.py" />
+    <Compile Include="app\main\auth\views.py" />
+    <Compile Include="app\main\auth\__init__.py" />
+    <Compile Include="app\main\book\forms.py" />
+    <Compile Include="app\main\book\views.py" />
+    <Compile Include="app\main\book\__init__.py" />
+    <Compile Include="app\main\comment\forms.py" />
+    <Compile Include="app\main\comment\views.py" />
+    <Compile Include="app\main\comment\__init__.py" />
+    <Compile Include="app\main\decorators.py" />
+    <Compile Include="app\main\errors.py" />
+    <Compile Include="app\main\index\views.py" />
+    <Compile Include="app\main\index\__init__.py" />
+    <Compile Include="app\main\log\views.py" />
+    <Compile Include="app\main\log\__init__.py" />
+    <Compile Include="app\main\user\forms.py" />
+    <Compile Include="app\main\user\views.py" />
+    <Compile Include="app\main\user\__init__.py" />
+    <Compile Include="app\main\__init__.py" />
+    <Compile Include="app\models.py" />
+    <Compile Include="app\__init__.py" />
+    <Compile Include="config.py" />
+    <Compile Include="run.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="app" />
+    <Folder Include="app\api" />
+    <Folder Include="app\main" />
+    <Folder Include="app\main\auth" />
+    <Folder Include="app\main\auth\templates" />
+    <Folder Include="app\main\book" />
+    <Folder Include="app\main\book\templates" />
+    <Folder Include="app\main\comment\" />
+    <Folder Include="app\main\index" />
+    <Folder Include="app\main\index\templates" />
+    <Folder Include="app\main\log" />
+    <Folder Include="app\main\log\templates" />
+    <Folder Include="app\main\user" />
+    <Folder Include="app\main\user\templates" />
+    <Folder Include="app\static\" />
+    <Folder Include="app\static\css" />
+    <Folder Include="app\static\fonts" />
+    <Folder Include="app\static\img" />
+    <Folder Include="app\static\js" />
+    <Folder Include="app\templates" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env\">
+      <Id>env</Id>
+      <Version>3.6</Version>
+      <Description>env (Python 3.6 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+</Project>
