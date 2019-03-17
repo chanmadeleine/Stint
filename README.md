@@ -8,7 +8,7 @@ Simple Movie application written on flask with SQLite database.
 * add/delete films, update film information
 * administrator delete reviews
 
-## Screen Shot
+## Screen Shots
 Index page:
 ![index page](https://user-images.githubusercontent.com/39877134/54490656-fd5f9880-488d-11e9-8eab-0263a7118706.png)
 
