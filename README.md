@@ -31,6 +31,9 @@ python3 ./run.py
 Press CTRL+C to terminate the server.  
 use `deactive` to quit the virtual environment.
 
+#### Credits
+[Akari Simple Book library] (https://github.com/magic-akari/BookLibrary)
+[Shinya Baba Book management] (https://logics-of-blue.com/visual-studio-flask-book-management-crud/)
 
 ## Dependencies
 
@@ -49,7 +52,7 @@ use `deactive` to quit the virtual environment.
 ## LICENSE
 The MIT License (MIT)
 
-Copyright (c) 2019 MC
+Copyright (c) 2019 MC :octocat:
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
