@@ -1,4 +1,4 @@
-<p align="center"><img src="app/static/img/horizontal.png" alt="Stint" height="200px"></p>
+<p align="center"><img src="https://user-images.githubusercontent.com/39877134/54490688-516a7d00-488e-11e9-82fa-89c19ba0091f.png" alt="Stint" height="200px"></p>
 
 # Stint
 Simple Movie application written on flask with SQLite database.
@@ -10,13 +10,13 @@ Simple Movie application written on flask with SQLite database.
 
 ## Screen Shot
 Index page:
-![index page](https://cloud.githubusercontent.com/assets/7829098/18173715/3e9ccc62-709d-11e6-820d-1cad1e6822b7.png)
+![index page](https://user-images.githubusercontent.com/39877134/54490656-fd5f9880-488d-11e9-8eab-0263a7118706.png)
 
 Movie list page:
-![movie list page](https://cloud.githubusercontent.com/assets/7829098/18173712/3defdba6-709d-11e6-99f4-aa0471c75af0.png)
+![movie list page](https://user-images.githubusercontent.com/39877134/54490658-15371c80-488e-11e9-9543-fc71489fec76.png)
 
 Movie detail page:
-![movie detail page](https://cloud.githubusercontent.com/assets/7829098/18173711/3dbdfe92-709d-11e6-8a63-85c64717ac70.png)
+![movie detail page](https://user-images.githubusercontent.com/39877134/54490664-21bb7500-488e-11e9-942b-4931eb45076e.png)
 
 ## Installation
 ```sh
