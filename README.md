@@ -32,8 +32,8 @@ Press CTRL+C to terminate the server.
 use `deactive` to quit the virtual environment.
 
 #### Credits
-[Akari Simple Book library] (https://github.com/magic-akari/BookLibrary)
-[Shinya Baba Book management] (https://logics-of-blue.com/visual-studio-flask-book-management-crud/)
+[Akari, Simple Book library](https://github.com/magic-akari/BookLibrary)  
+[Shinya Baba, Book management](https://logics-of-blue.com/visual-studio-flask-book-management-crud/)
 
 ## Dependencies
 
