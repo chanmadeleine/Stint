@@ -32,7 +32,7 @@ def index():
     pagination = the_books.paginate(page, per_page=8)
     result_books = pagination.items
     return render_template("book.html", books=result_books, pagination=pagination, search_form=search_form,
-                           title=u"Book list")
+                           title=u"Movie list")
 
 
 @book.route('/<book_id>/')
@@ -66,72 +66,71 @@ def edit(book_id):
     if form.validate_on_submit():
         book.isbn = form.isbn.data
         book.title = form.title.data
-        book.origin_title = form.origin_title.data
+        #book.origin_title = form.origin_title.data
         book.subtitle = form.subtitle.data
         book.author = form.author.data
-        book.translator = form.translator.data
-        book.publisher = form.publisher.data
+        #book.translator = form.translator.data
+        #book.publisher = form.publisher.data
         book.image = form.image.data
-        book.pubdate = form.pubdate.data
+        #book.pubdate = form.pubdate.data
         book.tags_string = form.tags.data
-        book.pages = form.pages.data
-        book.price = form.price.data
-        book.binding = form.binding.data
-        book.numbers = form.numbers.data
+        #book.pages = form.pages.data
+        #book.price = form.price.data
+        #book.binding = form.binding.data
+        #book.numbers = form.numbers.data
         book.summary = form.summary.data
         book.catalog = form.catalog.data
         db.session.add(book)
         db.session.commit()
-        flash(u'Book information has been saved!', 'success')
+        flash(u'Information has been saved!', 'success')
         return redirect(url_for('book.detail', book_id=book_id))
     form.isbn.data = book.isbn
     form.title.data = book.title
-    form.origin_title.data = book.origin_title
+    #form.origin_title.data = book.origin_title
     form.subtitle.data = book.subtitle
     form.author.data = book.author
-    form.translator.data = book.translator
-    form.publisher.data = book.publisher
+    #form.translator.data = book.translator
+    #form.publisher.data = book.publisher
     form.image.data = book.image
-    form.pubdate.data = book.pubdate
+    #form.pubdate.data = book.pubdate
     form.tags.data = book.tags_string
-    form.pages.data = book.pages
-    form.price.data = book.price
-    form.binding.data = book.binding
-    form.numbers.data = book.numbers
+    #form.pages.data = book.pages
+    #form.price.data = book.price
+    #form.binding.data = book.binding
+    #form.numbers.data = book.numbers
     form.summary.data = book.summary or ""
     form.catalog.data = book.catalog or ""
-    return render_template("book_edit.html", form=form, book=book, title=u"Edit book information")
+    return render_template("book_edit.html", form=form, book=book, title=u"Edit information")
 
 
 @book.route('/add/', methods=['GET', 'POST'])
 @permission_required(Permission.ADD_BOOK)
 def add():
     form = AddBookForm()
-    form.numbers.data = 3
+    #form.numbers.data = 3
     if form.validate_on_submit():
         new_book = Book(
             isbn=form.isbn.data,
             title=form.title.data,
-            origin_title=form.origin_title.data,
+            #origin_title=form.origin_title.data,
             subtitle=form.subtitle.data,
             author=form.author.data,
-            translator=form.translator.data,
-            publisher=form.publisher.data,
+            #translator=form.translator.data,
+            #publisher=form.publisher.data,
             image=form.image.data,
-            pubdate=form.pubdate.data,
+            #pubdate=form.pubdate.data,
             tags_string=form.tags.data,
-            pages=form.pages.data,
-            price=form.price.data,
-            binding=form.binding.data,
-            numbers=form.numbers.data,
+            #pages=form.pages.data,
+            #price=form.price.data,
+            #binding=form.binding.data,
+            #numbers=form.numbers.data,
             summary=form.summary.data or "",
             catalog=form.catalog.data or "")
         db.session.add(new_book)
         db.session.commit()
-        flash(u'Book %s has been added to the library!' % new_book.title, 'success')
+        flash(u'Movie %s has been added to the library!' % new_book.title, 'success')
         return redirect(url_for('book.detail', book_id=new_book.id))
-    return render_template("book_edit.html", form=form, title=u"Add new book")
-
+    return render_template("book_edit.html", form=form, title=u"Add new movie")
 
 @book.route('/<int:book_id>/delete/')
 @permission_required(Permission.DELETE_BOOK)
@@ -140,7 +139,7 @@ def delete(book_id):
     the_book.hidden = 1
     db.session.add(the_book)
     db.session.commit()
-    flash(u'The book is successfully deleted, benutzer werden das Buch nicht sehen', 'info')
+    flash(u'The movie is successfully deleted, benutzer werden das Buch nicht sehen', 'info')
     return redirect(request.args.get('next') or url_for('book.detail', book_id=book_id))
 
 
@@ -151,9 +150,8 @@ def put_back(book_id):
     the_book.hidden = 0
     db.session.add(the_book)
     db.session.commit()
-    flash(u'Successfully restored books, users can now view the book', 'info')
+    flash(u'Successfully restored the movie, users can see it now', 'info')
     return redirect(request.args.get('next') or url_for('book.detail', book_id=book_id))
-
 
 @book.route('/tags/')
 def tags():

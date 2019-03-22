@@ -15,22 +15,22 @@
                 <img class="img-responsive" src="{{ book.image }}" alt="{{ book.title~' Cover' }}">
             {%- endif -%}
             <ul class="list-group">
-                <li class="list-group-item">ISBN: {{ book.isbn }}</li>
-                {%- if book.origin_title -%}
+                <li class="list-group-item">IMDb#: {{ book.isbn }}</li>
+                <!--{%- if book.origin_title -%}
                     <li class="list-group-item">Original Title: {{ book.origin_title }}</li>
-                {%- endif -%}
+                {%- endif -%}-->
                 {%- if book.author -%}
-                    <li class="list-group-item">Author: {{ book.author }}</li>
+                    <li class="list-group-item">Stars: {{ book.author }}</li>
                 {%- endif -%}
-                {%- if book.translator -%}
+                <!--{%- if book.translator -%}
                     <li class="list-group-item">Translator: {{ book.translator }}</li>
                 {%- endif -%}
                 {%- if book.publisher -%}
-                    <li class="list-group-item">PUblisher: {{ book.publisher }}</li>
+                    <li class="list-group-item">Publisher: {{ book.publisher }}</li>
                 {%- endif -%}
                 {%- if book.pubdate -%}
                     <li class="list-group-item">Publish Date: {{ book.pubdate }}</li>
-                {%- endif -%}
+                {%- endif -%}-->
                 {%- if book.tags.count() -%}
                     <li class="list-group-item">Tag:
                         {% for tag in book.tags %}
@@ -39,7 +39,7 @@
                         {% endfor %}
                     </li>
                 {%- endif -%}
-                {%- if book.pages -%}
+                <!--{%- if book.pages -%}
                     <li class="list-group-item">Pages: {{ book.pages }}</li>
                 {%- endif -%}
                 {%- if book.price -%}
@@ -48,7 +48,7 @@
                 {%- if book.binding -%}
                     <li class="list-group-item">Binding: {{ book.binding }}</li>
                 {%- endif -%}
-                <li class="list-group-item">Collection / Available: {{ book.numbers }} / {{ book.can_borrow_number() }}</li>
+                <li class="list-group-item">Collection / Available: {{ book.numbers }} / {{ book.can_borrow_number() }}</li>-->
             </ul>
         </div>
         <br>
@@ -98,7 +98,7 @@
 
         <div class="btn-group">
             {%- if current_user.is_authenticated -%}
-                {%- with  log=current_user.borrowing(book) -%}
+                <!--{%- with  log=current_user.borrowing(book) -%}
                     {%- if log -%}
                         <a class="btn btn-primary"
                            href="{{ url_for('log.book_return',log_id=log.id,next=request.full_path ) }}">
@@ -110,23 +110,23 @@
                            {%- if not book.can_borrow() -%}disabled="disabled"{%- endif -%}>
                             Borrow
                         </a>
-                    {%- endif -%}
+                    {%- endif -%}-->
                 {%- endwith -%}
             {%- endif -%}
             {%- if current_user.can(Permission.UPDATE_BOOK_INFORMATION) -%}
-                <a type="button" class="btn btn-warning" href="{{ url_for('book.edit',book_id=book.id) }}">Edit book information
+                <a type="button" class="btn btn-warning" href="{{ url_for('book.edit',book_id=book.id) }}">Edit information
                 </a>
             {%- endif -%}
 
             {%- if book.hidden -%}
                 {%- if current_user.is_administrator() -%}
                     <a type="button" class="btn btn-info"
-                       href="{{ url_for('book.put_back',book_id=book.id) }}">Recover Book</a>
+                       href="{{ url_for('book.put_back',book_id=book.id) }}">Recover Movie</a>
                 {%- endif -%}
             {%- else -%}
                 {%- if current_user.can(Permission.DELETE_BOOK) -%}
                     <a type="button" class="btn btn-danger"
-                       href="{{ url_for('book.delete',book_id=book.id) }}">Delete Book</a>
+                       href="{{ url_for('book.delete',book_id=book.id) }}">Delete Movie</a>
                 {%- endif -%}
             {%- endif -%}
         </div>
@@ -138,12 +138,12 @@
                 <li role="presentation" {%- if tabindex=='0' -%}class="active"{%- endif -%}><a
                         href="{%- if tabindex=='0' -%}#log{%- else -%}{{ url_for('book.detail',book_id=book.id,show=0,_anchor='log') }}{%- endif -%}"
                         role="tab">Reviews</a></li>
-                <li role="presentation" {%- if tabindex=='1' -%}class="active"{%- endif -%}><a
+                <!--<li role="presentation" {%- if tabindex=='1' -%}class="active"{%- endif -%}><a
                         href="{%- if tabindex=='1' -%}#log{%- else -%}{{ url_for('book.detail',book_id=book.id,show=1,_anchor='log') }}{%- endif -%}"
                         role="tab">Current borrowing information</a></li>
                 <li role="presentation" {%- if tabindex=='2' -%}class="active"{%- endif -%}><a
                         href="{%- if tabindex=='2' -%}#log{%- else -%}{{ url_for('book.detail',book_id=book.id,show=2,_anchor='log') }}{%- endif -%}"
-                        role="tab">Historical borrowing information</a></li>
+                        role="tab">Historical borrowing information</a></li>-->
             {%- endwith -%}
         </ul>
         <!-- Tab panes -->
@@ -209,13 +209,13 @@
                             <div class="modal-header">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
                                         aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title">{{ current_user.name~' ''s '~book.title~' Comments' }}</h4>
+                                <h4 class="modal-title">{{ current_user.name~' ''''s '~book.title~' reviews' }}</h4>
                             </div>
                             <form action="{{ url_for('comment.add',book_id=book.id) }}" method="post" class="form"
                                   role="form">
                                 {{ form.hidden_tag() }}
                                 <div class="modal-body">
-                                    {{ wtf.form_field(form.comment,placeholder="The length is limited to 1024 characters") }}
+                                    {{ wtf.form_field(form.comment,placeholder="The length is limited to 5120 characters") }}
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-default" data-dismiss="modal">Close
@@ -233,8 +233,8 @@
                         <tr>
                             <th>User Name</th>
                             <th class="hidden-xs">User email</th>
-                            <th>Borrow Date</th>
-                            <th>Return Date</th>
+                            <!--<th>Borrow Date</th>
+                            <th>Return Date</th>-->
                         </tr>
                         </thead>
                         <tbody>
@@ -245,8 +245,8 @@
                                 </td>
                                 <td class="hidden-xs">{{ log.user.email }}</td>
                                 </td>
-                                <td>{{ log.borrow_timestamp.strftime('%d %B %Y - %H:%M:%S') }}</td>
-                                <td>{{ log.return_timestamp.strftime('%d %B %Y - %H:%M:%S') }}</td>
+                                <!--<td>{{ log.borrow_timestamp.strftime('%d %B %Y - %H:%M:%S') }}</td>
+                                <td>{{ log.return_timestamp.strftime('%d %B %Y - %H:%M:%S') }}</td>-->
                             </tr>
                         {%- endfor -%}
                         </tbody>
@@ -261,8 +261,8 @@
                         <tr>
                             <th>User Name</th>
                             <th class="hidden-xs">User email</th>
-                            <th>Borrow Date</th>
-                            <th>Return Date</th>
+                            <!--<th>Borrow Date</th>
+                            <th>Return Date</th>-->
                         </tr>
                         </thead>
                         <tbody>
@@ -273,8 +273,8 @@
                                 </td>
                                 <td class="hidden-xs">{{ log.user.email }}</td>
                                 </td>
-                                <td>{{ log.borrow_timestamp.strftime('%d %B %Y - %H:%M:%S') }}</td>
-                                <td>{{ log.return_timestamp.strftime('%d %B %Y - %H:%M:%S') }}</td>
+                                <!--<td>{{ log.borrow_timestamp.strftime('%d %B %Y - %H:%M:%S') }}</td>
+                                <td>{{ log.return_timestamp.strftime('%d %B %Y - %H:%M:%S') }}</td>-->
                             </tr>
                         {%- endfor -%}
                         </tbody>

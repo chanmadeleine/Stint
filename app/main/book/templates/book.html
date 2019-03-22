@@ -21,10 +21,11 @@
         <thead>
         <tr>
             <th>Titel</th>
-            <th class="hidden-xs">Author</th>
-            <th class="hidden-xs">ISBN</th>
-            <th class="hidden-xs">Collections / Available</th>
+            <th class="hidden-xs">Stars</th>
+            <th class="hidden-xs">IMDb #</th>
+<!--            <th class="hidden-xs">Collections / Available</th>
             <th class="hidden-xs">On loan</th>
+            -->
             {%- if current_user.is_authenticated -%}
             <th>Bedienung</th>
             {%- endif -%}
@@ -35,13 +36,14 @@
             <tr class="{% if book.hidden %}danger{% endif %} animated fadeIn delay-{{ loop.index0 }}">
                 <td><a href="{{ url_for('book.detail',book_id=book.id) }}">{{ book.title }}</a>
                     <p class="visible-xs-block">{{ book.author }}</p>
-                    <p class="visible-xs-block">Collections/Available: {{ book.numbers }} / {{ book.can_borrow_number() }}</p>
+<!--                    <p class="visible-xs-block">Collections/Available: {{ book.numbers }} / {{ book.can_borrow_number() }}</p>
                     <p class="visible-xs-block">On loan: {{ book.logs.count() }}</p>
+                -->
                 </td>
                 <td class="hidden-xs">{{ book.author }}</td>
                 <td class="hidden-xs">{{ book.isbn }}</td>
-                <td class="hidden-xs">{{ book.numbers }} / {{ book.can_borrow_number() }}</td>
-                <td class="hidden-xs">{{ book.logs.count() }}</td>
+                <!--<td class="hidden-xs">{{ book.numbers }} / {{ book.can_borrow_number() }}</td>
+                <td class="hidden-xs">{{ book.logs.count() }}</td>-->
                 {%- if current_user.is_authenticated -%}
                     <td>
                         {% with borrowing_log=current_user.borrowing(book) %}
@@ -49,20 +51,20 @@
                         <a class="btn btn-primary"
                            href="{{ url_for('log.book_return',log_id=borrowing_log.id,next=request.full_path) }}">Return</a>
                             {%- else -%}
-                                <a class="btn btn-success"
+                                <!--<a class="btn btn-success"
                                    href="{{ url_for('log.book_borrow',book_id=book.id,next=request.full_path) }}"
-                                        {%- if not book.can_borrow() %} disabled="disabled"{%- endif -%}>Borrow</a>
+                                        {%- if not book.can_borrow() %} disabled="disabled"{%- endif -%}>Borrow</a>-->
                             {%- endif -%}
                         {% endwith %}
                         {% if book.hidden %}
                             {%- if current_user.is_administrator() -%}
                                 <a type="button" class="btn btn-info"
-                                   href="{{ url_for('book.put_back',book_id=book.id,next=request.full_path) }}">Restore books</a>
+                                   href="{{ url_for('book.put_back',book_id=book.id,next=request.full_path) }}">Restore Movie</a>
                             {%- endif -%}
                         {% else %}
                             {%- if current_user.can(Permission.DELETE_BOOK) -%}
                                 <a type="button" class="btn btn-danger"
-                                   href="{{ url_for('book.delete',book_id=book.id,next=request.full_path) }}">Delete books</a>
+                                   href="{{ url_for('book.delete',book_id=book.id,next=request.full_path) }}">Delete Movie</a>
                             {%- endif -%}
                         {%- endif -%}
                     </td>

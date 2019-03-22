@@ -272,7 +272,7 @@ class Comment(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'))
     book_id = db.Column(db.Integer, db.ForeignKey('books.id'))
-    comment = db.Column(db.String(1024))
+    comment = db.Column(db.String(5120))
     create_timestamp = db.Column(db.DateTime, default=datetime.now())
     edit_timestamp = db.Column(db.DateTime, default=datetime.now())
     deleted = db.Column(db.Boolean, default=0)

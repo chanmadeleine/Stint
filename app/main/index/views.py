@@ -22,3 +22,7 @@ def index():
     recently_comments = Comment.query.filter_by(deleted=0).order_by(Comment.edit_timestamp.desc()).limit(5)
     return render_template("index.html", books=popular_books, users=popular_users, recently_comments=recently_comments,
                            search_form=search_form)
+
+@main.route('/favicon.ico') 
+def favicon(): 
+    return send_from_directory(os.path.join(app.root_path, 'static'), 'favicon.ico', mimetype='image/vnd.microsoft.icon')

@@ -1,0 +1,6 @@
+id,email,name,password_hash,major,role_id,headline,about_me,about_me_html,avatar,member_since
+1,root@gmail.com,root,pbkdf2:sha256:50000$dsmuwI9i$04f6508af62eae4b87efaf28702d161c7bee73724b690a35335d68bdeb7bff68,administrator,3,Administrator,Administrator,<p>Administrator</p>,,2019-03-03 18:15:03.352400
+2,madeleine@madeleine.com,MC,pbkdf2:sha256:50000$pFk3uWP1$fe8d42c254b7d56c7511b7e36cd77c72545e17359ba6b71474fe1873be1c0d21,Media,1,User,,,,2019-03-03 18:15:03.397465
+3,test@test.com,test,pbkdf2:sha256:50000$aGgXqPaH$97578082e055ebcb513aab5560161ba3c929f02aa757456e93e4ba8ab910aba9,,1,,,,,2019-03-03 18:15:03.437707
+4,caroline@yahoo.com,Caroline,pbkdf2:sha256:50000$ZDH1C4DX$dfd7a5d5ab7bb91bec3cece833672d680bc0440a43c532bbc2c88daa0f1817b9,,1,,,,,2019-03-03 18:15:03.478874
+5,helena.lingor@leuphana.de,Helena,pbkdf2:sha256:50000$pkfnPHOO$daf35514a83d9120439c9b130e61f25006c9b5e6298a73e414314aacc166c610,,1,Teaching and Research Associate,,,,2019-03-03 18:15:03.517535

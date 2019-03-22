@@ -7,7 +7,7 @@
         <tr>
             <th>User Name</th>
             <th>User email</th>
-            <th>Books on loan</th>
+            <!--<th>Books on loan</th>-->
         </tr>
         </thead>
         <tbody>
@@ -15,7 +15,7 @@
             <tr class="animated fadeIn delay-{{ loop.index0 }}">
                 <td><a href="{{ url_for('user.detail',user_id=user.id) }}">{{ user.name }}</a></td>
                 <td>{{ user.email }}</td>
-                <td>{{ user.logs.count() }}</td>
+                <!--<td>{{ user.logs.count() }}</td>-->
             </tr>
         {% endfor %}
         </tbody>

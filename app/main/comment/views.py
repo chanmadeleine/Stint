@@ -21,9 +21,8 @@ def add(book_id):
         the_comment = Comment(user=current_user, book=the_book, comment=form.comment.data)
         db.session.add(the_comment)
         db.session.commit()
-        flash(u'Book review has been successfully released', 'success')
+        flash(u'Review has been successfully released', 'success')
     return redirect(request.args.get('next') or url_for('book.detail', book_id=book_id))
-
 
 @comment.route('/delete/<int:comment_id>')
 @login_required

@@ -5,9 +5,9 @@
 {%- endblock metas -%}
 {%- block title -%}
     {%- if title -%}
-        {{ title }} - Book Library
+        {{ title }} - Stint
     {%- else -%}
-        Book Library
+        Stint
     {%- endif -%}
 {%- endblock -%}
 {%- block styles -%}
@@ -29,25 +29,26 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="{{ url_for('main.index') }}">Book Library</a>
+                <a class="navbar-brand" href="{{ url_for('main.index') }}">Stint</a>
             </div>
 
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li {%- if request.path == url_for('book.index') %} class="active"{%- endif -%} ><a
-                            href="{{ url_for('book.index') }}">Book list</a></li>
+                            href="{{ url_for('book.index') }}">Movie list</a></li>
                     {%- if current_user.is_authenticated -%}
                         <li {%- if request.path == url_for('book.tags') %} class="active"{%- endif -%} ><a
                                 href="{{ url_for('book.tags') }}">Tags</a></li>
                         {%- if current_user.can(Permission.ADD_BOOK) -%}
                             <li {%- if request.path == url_for('book.add') %} class="active"{%- endif -%} ><a
-                                    href="{{ url_for('book.add') }}">Add new book</a></li>
+                                    href="{{ url_for('book.add') }}">Add new movie</a></li>
                         {%- endif -%}
                         <li {%- if request.path == url_for('user.index') %} class="active"{%- endif -%} ><a
                                 href="{{ url_for('user.index') }}">Registered user</a></li>
-                        <li {%- if request.path == url_for('log.index') %} class="active"{%- endif -%} ><a
+<!--                        <li {%- if request.path == url_for('log.index') %} class="active"{%- endif -%} ><a
                                 href="{{ url_for('log.index') }}">Borrowing record</a></li>
+-->
                     {%- endif -%}
                 </ul>
                 <ul class="nav navbar-nav navbar-right">

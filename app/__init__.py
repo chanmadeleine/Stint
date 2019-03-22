@@ -26,3 +26,17 @@ from app import models
 exists_db = os.path.isfile(app.config['DATABASE'])
 if not exists_db:
     from . import db_fill
+
+from flask import render_template
+from werkzeug.exceptions import HTTPException
+
+@app.errorhandler(Exception)
+def handle_err(e):
+    code = 500
+    if isinstance(e, HTTPException):
+        code = e.code
+        if code == 404:
+            return render_template('404.html'), 404
+        elif code == 500:
+            return render_template('500.html'), 500
+    #return jsonify(error=str(e)), code
